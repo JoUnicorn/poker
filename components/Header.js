@@ -1,11 +1,17 @@
 import Link from 'next/link'
 
 const linkStyle = {
-  marginRight: 15
+  marginRight: 15,
+  fontSize: 24
+}
+
+const headerM = {
+  width: '960px',
+  backgroundColor: 'orange'
 }
 
 const Header = () => (
-    <div>
+    <div style={headerM}>
         <Link href="/">
           <a style={linkStyle}>Home</a>
         </Link>
