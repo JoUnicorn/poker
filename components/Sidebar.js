@@ -1,36 +1,5 @@
 import Link from 'next/link'
 
-function getPosts () {
-  return [
-    { id: 'Stock', title: 'Stock'},
-    { id: 'Options', title: 'Options'},
-  ]
-}
-
-const PostLink = ({ post }) => (
-  <li>
-    <Link as={`/p/${post.id}`} href={`/post?id=${post.id}`}>
-      <a>{post.title}</a>
-    </Link>
-    <style jsx>{`
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-        font-family: "Arial";
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
-  </li>
-)
-
 const sidebarM = {
   float: 'left',
   width: '260px',
@@ -41,9 +10,11 @@ const Sidebar = () => (
     <div style={sidebarM}>
       <h1>Menu</h1>
       <ul>
-        {getPosts().map((post) => (
-          <PostLink key={post.id} post={post}/>
-        ))}
+      <li>
+        <Link href="/stock">
+          <a>Stock</a>
+        </Link>
+      </li>
       </ul>
       <style jsx>{`
         h1, a {
@@ -62,6 +33,7 @@ const Sidebar = () => (
         a {
           text-decoration: none;
           color: blue;
+          font-family: "Arial";
         }
 
         a:hover {
