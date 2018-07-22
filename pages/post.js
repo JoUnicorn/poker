@@ -3,16 +3,16 @@ import fetch from 'isomorphic-unfetch'
 
 const Post =  (props) => (
     <Layout>
-       <h1>{props.show.start_date}</h1>
+       <h1>{props.show.dataset.name}</h1>
     </Layout>
 )
 
 Post.getInitialProps = async function (context) {
-  const { id } = "MS2Rg8PPdkKdQix6s2dY"
-  const res = await fetch(`https://www.quandl.com/api/v3/datasets/WIKI/FB/data.json?api_key=${id}`)
+  const { id } = context.query
+  const res = await fetch(`https://www.quandl.com/api/v3/datasets/WIKI/${id}.json?api_key=MS2Rg8PPdkKdQix6s2dY`)
   const show = await res.json()
 
-  console.log(`Fetched show: ${show.frequency}`)
+  console.log(`Fetched show: ${show.dataset.dataset_code}`)
 
   return { show }
 }

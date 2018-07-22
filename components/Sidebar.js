@@ -2,14 +2,14 @@ import Link from 'next/link'
 
 function getPosts () {
   return [
-    { id: 'Stocks', title: 'Stocks'},
+    { id: 'Stock', title: 'Stock'},
     { id: 'Options', title: 'Options'},
   ]
 }
 
 const PostLink = ({ post }) => (
   <li>
-    <Link as={`/p/${post.id}`} href={`/post?title=${post.title}`}>
+    <Link as={`/p/${post.id}`} href={`/post?id=${post.id}`}>
       <a>{post.title}</a>
     </Link>
     <style jsx>{`
